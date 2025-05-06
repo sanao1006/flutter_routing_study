@@ -1,29 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_routing_study/MyTheme.dart';
+import 'package:flutter_routing_study/ThemedWidget.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = false;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
         extensions: const [MyTheme(themeColor: Color(0xFF0000FF))],
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: Colors.deepPurple,
+        colorSchemeSeed: Colors.green,
         brightness: Brightness.dark,
         extensions: const [MyTheme(themeColor: Color(0xFFFF0000))],
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: Scaffold(
+        body: const Center(child: ThemedWidget()),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            _toggleTheme();
+          },
+          child: Icon(Icons.settings_brightness),
+        ),
+      ),
     );
   }
 }

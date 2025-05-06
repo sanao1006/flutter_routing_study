@@ -6,7 +6,7 @@ class MyTheme extends ThemeExtension<MyTheme> {
   final Color? themeColor;
 
   @override
-  ThemeExtension<MyTheme> copyWith() {
+  ThemeExtension<MyTheme> copyWith({Color? themeColor}) {
     return MyTheme(themeColor: themeColor ?? this.themeColor);
   }
 

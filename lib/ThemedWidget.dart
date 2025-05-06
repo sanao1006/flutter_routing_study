@@ -7,9 +7,8 @@ class ThemedWidget extends StatelessWidget {
   const ThemedWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    final themedData = Theme.of(context);
-    final myTheme = themedData.extension<MyTheme>()!;
+    final myTheme =Theme.of(context).extension<MyTheme>()!;
     final color = myTheme.themeColor;
-    throw Container(width: 100, height: 100, color: color);
+    return Container(width: 100, height: 100, color: color);
   }
 }
