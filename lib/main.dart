@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_routing_study/MyTheme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +15,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true
+        useMaterial3: true,
+        extensions: const [MyTheme(themeColor: Color(0xFF0000FF))],
       ),
       darkTheme: ThemeData(
         colorSchemeSeed: Colors.deepPurple,
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        extensions: const [MyTheme(themeColor: Color(0xFFFF0000))],
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
