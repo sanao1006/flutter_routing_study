@@ -15,20 +15,20 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("First Screen"),),
+      appBar: AppBar(title: const Text("First Screen")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: ()  {
-                GoRouter.of(context).go("/second");
+              onPressed: () {
+                GoRouter.of(context).go('/second');
               },
               child: Text("FirstからSecondへ"),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed("/third");
+                GoRouter.of(context).go('/second/third');
               },
               child: Text("FirstからThirdへ"),
             ),

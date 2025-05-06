@@ -8,14 +8,29 @@ import 'FIrstScreen.dart';
 import 'SecondScreen.dart';
 
 void main() {
-  runApp( MaterialApp.router(routerConfig: _router));
+  runApp(MaterialApp.router(routerConfig: _router));
 }
 
-final _router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => const FirstScreen()),
-  GoRoute(path: "/second", builder: (context, state)  => const SecondScreen()),
-  GoRoute(path: "/third", builder: (context, state)  => const  ThirdScreen()),
-]);
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const FirstScreen(),
+      routes: [
+        GoRoute(
+          path: 'second',
+          builder: (context, state) => const SecondScreen(),
+          routes: [
+            GoRoute(
+              path: 'third',
+              builder: (context, state) => const ThirdScreen(),
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

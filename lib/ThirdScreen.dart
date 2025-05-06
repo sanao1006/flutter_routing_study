@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ThirdScreen extends StatelessWidget {
   const ThirdScreen({super.key});
@@ -10,11 +11,14 @@ class ThirdScreen extends StatelessWidget {
       appBar: AppBar(title: Text("Third Screen")),
       body: Center(
         child: Column(
-          children: [ElevatedButton(
+          children: [
+            ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                GoRouter.of(context).pop();
               },
-              child: const Text("戻る"))],
+              child: const Text("戻る"),
+            ),
+          ],
         ),
       ),
     );
