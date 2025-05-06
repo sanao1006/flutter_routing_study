@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'SecondScreen.dart';
 
@@ -11,25 +12,27 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  int _number = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("First Screen"),),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            final newNumber = await Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => SecondScreen(number: _number)),
-            );
-            setState(() {
-              if (newNumber != null) {
-                _number = newNumber;
-              }
-            });
-          },
-          child: Text("$_number"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: ()  {
+                GoRouter.of(context).go("/second");
+              },
+              child: Text("FirstからSecondへ"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/third");
+              },
+              child: Text("FirstからThirdへ"),
+            ),
+          ],
         ),
       ),
     );

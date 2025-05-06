@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key, required this.number});
-
-  final int number;
+  const SecondScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +14,15 @@ class SecondScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop(number + 1);
+                GoRouter.of(context).go("/third");
               },
-              child: const Text("Increment"),
+              child: const Text("SecondからThirdへ"),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop(number - 1);
+                Navigator.of(context).pop();
               },
-              child: const Text("Decrement"),
+              child: const Text("戻る"),
             ),
           ],
         ),
