@@ -22,13 +22,19 @@ class _FirstScreenState extends State<FirstScreen> {
           children: [
             ElevatedButton(
               onPressed: () {
-                GoRouter.of(context).go('/second');
+                GoRouter.of(context).push('/');
+              },
+              child: Text("FirstからFirstへ"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                GoRouter.of(context).push('/second');
               },
               child: Text("FirstからSecondへ"),
             ),
             ElevatedButton(
               onPressed: () {
-                GoRouter.of(context).go('/second/third');
+                GoRouter.of(context).push('/second/third');
               },
               child: Text("FirstからThirdへ"),
             ),
