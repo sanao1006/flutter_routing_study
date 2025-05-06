@@ -13,13 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue).copyWith(surface: Colors.blueGrey),
-        textTheme: TextTheme(
-          bodyMedium: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w600
-          )
-        )
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.deepPurple,
+        brightness: Brightness.dark
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
